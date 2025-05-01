@@ -9,9 +9,9 @@ const UserSchema = new Schema({
     email:{ type: String, required: true, unique: true },
     blogs:[{ type: Schema.Types.ObjectId, ref: 'Blog' }],
     social:{
-        facebook: { type: String, required: true },
-        twitter: { type: String, required: true },
-        linkedin: { type: String, required: true }
+        facebook: { type: String, required: false },
+        twitter: { type: String, required: false },
+        linkedin: { type: String, required: false }
         
     }
 });
