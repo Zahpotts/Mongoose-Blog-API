@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 
 router.get('/featured', (req, res) => {
     Blog
-        .where({ feature: true })
+        .where({ featured: true })
         .then(blogs => res.status(200).json(blogs))
         .catch(err => res.status(500).json({ error: err.message }));
 });
@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
             if (!blog) {
                 return res.status(404).json({ message: 'Blog not found' });
             }
-            res.status(200).json(blog);
+            res.status(204).json(blog);
         })
         .catch(err => res.status(500).json({ error: err.message }));
 });
@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
             if (!blog) {
                 return res.status(404).json({ message: 'Blog not found' });
             }
-            res.status(200).json(blog);
+            res.status(204).end;
         })
         .catch(err => res.status(500).json({ error: err.message }));
 });
